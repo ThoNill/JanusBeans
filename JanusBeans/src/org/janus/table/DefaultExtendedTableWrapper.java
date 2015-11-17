@@ -97,7 +97,6 @@ public class DefaultExtendedTableWrapper extends DefaultValue implements
 
 	public void setCurrentRow(DataContext data, int current) {
 		currentRow.setObject(data,current);
-	//	getTable(data).setCurrentRow(current);
 	}
 
 	public PageAction getRowCount() {

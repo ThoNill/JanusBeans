@@ -103,7 +103,6 @@ public class DefaultTableColumn implements DataValue , Action {
 
 	@Override
 	public void perform(DataContext context) {
-				
 	}
 
 	
