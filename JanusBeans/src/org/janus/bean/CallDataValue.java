@@ -2,9 +2,10 @@ package org.janus.bean;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
-
 import org.apache.commons.beanutils.ConvertingWrapDynaBean;
 import org.apache.commons.beanutils.MethodUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.janus.actions.EmptyAction;
 import org.janus.actions.ReadValue;
 import org.janus.data.DataContext;
@@ -22,6 +23,7 @@ import org.janus.value.TextDataValue;
  * 
  */
 public class CallDataValue extends EmptyAction {
+	private static final Logger LOG = LogManager.getLogger(CallDataValue.class);
 
 	BeanDataValue value;
 	String command;
@@ -87,11 +89,11 @@ public class CallDataValue extends EmptyAction {
 		try {
 			MethodUtils.invokeMethod(obj, command, null);
 		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
+			LOG.error("Keine Methode {} {}",command,e);
 		} catch (IllegalAccessException e) {
-			e.printStackTrace();
+			LOG.error("Illegaler Zugriff {} {}",command,e);
 		} catch (InvocationTargetException e) {
-			e.printStackTrace();
+			LOG.error("Objekt passt nicht zu {} {}",command,e);
 		}
 	}
 

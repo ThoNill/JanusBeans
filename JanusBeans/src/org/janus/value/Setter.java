@@ -6,7 +6,10 @@ import java.sql.SQLException;
 import java.util.Hashtable;
 
 import org.apache.commons.beanutils.DynaBean;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.janus.actions.ReadValue;
+import org.janus.bean.CallDataValue;
 import org.janus.data.DataContext;
 
 /*
@@ -15,6 +18,7 @@ import org.janus.data.DataContext;
  * 
  */
 public class Setter implements ReadValue {
+	private static final Logger LOG = LogManager.getLogger(Setter.class);
 
 	private String targetName = null; // Name dessen, dessen Wert gesetzt wird
 	private ReadValue value;
@@ -59,6 +63,7 @@ public class Setter implements ReadValue {
 	// Ein Attriobut eines Beans setzen
 	public void setBean(DataContext data, DynaBean bean) {
 		Object obj = getObject(data);
+		LOG.debug("setze Wert {}.{} = {}",bean.getClass().getCanonicalName(),targetName,obj);
 		bean.set(targetName, obj);
 	}
 
