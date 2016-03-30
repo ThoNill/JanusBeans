@@ -96,7 +96,7 @@ public class DefaultExtendedTableWrapper extends DefaultValue implements
 	}
 
 	public void setCurrentRow(DataContext data, int current) {
-		currentRow.setObject(data,current);
+		currentRow.setObject(data, current);
 	}
 
 	public PageAction getRowCount() {
@@ -189,6 +189,11 @@ public class DefaultExtendedTableWrapper extends DefaultValue implements
 	public void setObject(DataContext ctx, Serializable value) {
 		if (value instanceof ExtendedTableModel) {
 			super.setObject(ctx, value);
+		} else if (value instanceof SelectRowHint) {
+			setCurrentRow(ctx, ((SelectRowHint) value).getRow());
+		} else if (value instanceof SearchValueInColumnHint) {
+			SearchValueInColumnHint hint = ((SearchValueInColumnHint) value);
+			find(ctx, hint.getValue(), hint.getColumn());
 		} else {
 			throw new RuntimeException("set= "
 					+ value.getClass().getSimpleName());
