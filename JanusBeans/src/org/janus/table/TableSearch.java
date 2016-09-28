@@ -10,12 +10,11 @@ public class TableSearch {
 		}
 		int rowCount = m.getRowCount();
 		int i = 0;
-		Object comparedObject = null;
+		Object comparedObject;
 
 		while (i < rowCount) {
 			comparedObject = m.getValueAt(i, column);
-			if ((comparedObject == null && obj == null)
-					|| (obj != null && obj.equals(comparedObject))) {
+			if (obj.equals(comparedObject)) {
 				return i;
 			}
 			i++;
@@ -30,12 +29,11 @@ public class TableSearch {
 
 		int rowCount = m.getRowCount();
 		int i = 0;
-		Object comparedObject = null;
+		Object comparedObject;
 
 		while (i < rowCount) {
 			comparedObject = m.getValueAt(i, column);
-			if ((comparedObject == null && obj == null)
-					|| (obj != null && obj.equals(comparedObject))) {
+			if (obj.equals(comparedObject)) {
 				return i;
 			}
 			i++;

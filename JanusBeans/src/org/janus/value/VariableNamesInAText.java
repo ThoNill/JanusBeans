@@ -1,8 +1,9 @@
 package org.janus.value;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Vector;
+import java.util.List;
 
 /**
  * Isoliert Variablennamen der Form ${nam} in einem Text
@@ -13,7 +14,7 @@ public class VariableNamesInAText implements Serializable {
 
 	public String prepareText(String stmt) {
 		String s[] = stmt.split(TRENNER);
-		StringBuffer b = new StringBuffer();
+		StringBuilder b = new StringBuilder();
 		for (int i = 0; i < s.length; i++) {
 			if (i % 2 == 0) {
 				b.append(s[i]);
@@ -29,16 +30,16 @@ public class VariableNamesInAText implements Serializable {
 	}
 
 	public static Collection<String> getVariablen(String stmt) {
-		Vector<String> liste = new Vector<String>();
+		List<String> liste = new ArrayList<String>();
 		String s[] = stmt.split(TRENNER);
 		for (int i = 1; i < s.length; i += 2) {
-			liste.addElement(s[i]);
+			liste.add(s[i]);
 		}
 		return liste;
 	}
 
 	public Collection<RefDataValue> getDataValues(String stmt) {
-		Vector<RefDataValue> liste = new Vector<RefDataValue>();
+		List<RefDataValue> liste = new ArrayList<RefDataValue>();
 		String s[] = stmt.split(TRENNER);
 		for (int i = 0; i < s.length; i++) {
 			RefDataValue v = new RefDataValue();
@@ -47,19 +48,19 @@ public class VariableNamesInAText implements Serializable {
 			} else {
 				v.setSourceName(s[i]);
 			}
-			liste.addElement(v);
+			liste.add(v);
 		}
 		return liste;
 	}
 
 	public static Collection<RefDataValue> getNonConstantDataValues(String stmt) {
-		Vector<RefDataValue> liste = new Vector<RefDataValue>();
+		List<RefDataValue> liste = new ArrayList<RefDataValue>();
 		String s[] = stmt.split(TRENNER);
 		for (int i = 0; i < s.length; i++) {
 			if (i % 2 != 0) {
 				RefDataValue v = new RefDataValue();
 				v.setSourceName(s[i]);
-				liste.addElement(v);
+				liste.add(v);
 			}
 		}
 		return liste;

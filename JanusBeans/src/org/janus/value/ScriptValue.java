@@ -7,6 +7,9 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.janus.bean.CallDataValue;
 import org.janus.data.DataContext;
 
 /**
@@ -28,6 +31,7 @@ import org.janus.data.DataContext;
  *
  */
 public class ScriptValue extends TextDataValue {
+    private static final Logger LOG = LogManager.getLogger(ScriptValue.class);
 
 	private static final long serialVersionUID = -6311431438777125283L;
 	String script;
@@ -59,7 +63,7 @@ public class ScriptValue extends TextDataValue {
 			Object r = jsEngine.eval(script);
 			return (Serializable) r;
 		} catch (ScriptException ex) {
-			ex.printStackTrace();
+			LOG.error("javaScript Fehler",ex);
 		}
 		return null;
 	}

@@ -105,7 +105,7 @@ public class CallDataValue extends EmptyAction {
 	}
 
 	public void addSetter(Setter s) {
-		setters.addElement(s);
+		setters.add(s);
 		
 	}
 

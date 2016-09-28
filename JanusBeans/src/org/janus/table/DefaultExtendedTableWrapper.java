@@ -1,7 +1,8 @@
 package org.janus.table;
 
 import java.io.Serializable;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.janus.actions.Action;
 import org.janus.actions.DefaultValue;
@@ -22,7 +23,7 @@ public class DefaultExtendedTableWrapper extends DefaultValue implements
 	private String name;
 	private ActionDictionary model;
 
-	private Vector<DefaultTableColumn> columns = new Vector<DefaultTableColumn>();
+	private List<DefaultTableColumn> columns = new ArrayList<DefaultTableColumn>();
 
 	public DefaultExtendedTableWrapper(String name, ActionDictionary dict) {
 		super(null);
@@ -133,7 +134,7 @@ public class DefaultExtendedTableWrapper extends DefaultValue implements
 	}
 
 	public String getColumnName(int arg0) {
-		return columns.elementAt(arg0).getColumnName();
+		return columns.get(arg0).getColumnName();
 	}
 
 	public Serializable getValueAt(DataContext data, int arg0, int arg1) {
@@ -181,7 +182,7 @@ public class DefaultExtendedTableWrapper extends DefaultValue implements
 		return name;
 	}
 
-	public Vector<DefaultTableColumn> getColumns() {
+	public List<DefaultTableColumn> getColumns() {
 		return columns;
 	}
 
@@ -195,7 +196,7 @@ public class DefaultExtendedTableWrapper extends DefaultValue implements
 			SearchValueInColumnHint hint = ((SearchValueInColumnHint) value);
 			find(ctx, hint.getValue(), hint.getColumn());
 		} else {
-			throw new RuntimeException("set= "
+			throw new IllegalArgumentException("set= "
 					+ value.getClass().getSimpleName());
 		}
 	}

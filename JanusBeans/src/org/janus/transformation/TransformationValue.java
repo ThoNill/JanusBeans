@@ -1,7 +1,7 @@
 package org.janus.transformation;
 
 import java.io.Serializable;
-import java.util.Vector;
+import java.util.List;
 
 import org.janus.actions.ReadValue;
 import org.janus.data.DataContext;
@@ -34,7 +34,7 @@ public class TransformationValue extends
 	}
 
 	private Serializable[] werteInArraySchreiben(DataContext data) {
-		Vector<ReadValue> values = getValues();
+		List<ReadValue> values = getValues();
 		Serializable o[] = new Serializable[values.size()];
 		int i = 0;
 		for (ReadValue a : getValues()) {

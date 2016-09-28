@@ -2,7 +2,8 @@ package org.janus.transformation;
 
 
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.janus.actions.Action;
 import org.janus.data.DataContext;
@@ -20,7 +21,7 @@ import org.janus.dict.actions.ActionDictionary;
 public abstract class ObjectSequence<K, O> implements Action  {
 
 	private static final long serialVersionUID = -2425397182441185798L;
-	protected Vector<O> values;
+	protected List<O> values;
 	private K action = null;
 	private String classname = null;
 	protected String nameList = null;
@@ -56,13 +57,13 @@ public abstract class ObjectSequence<K, O> implements Action  {
 
 	public abstract void performWith(DataContext data, K k, O o);
 
-	public Vector<O> getValues() {
+	public List<O> getValues() {
 		if (values == null && nameList != null) {
 			String names[] = nameList.split(" *, *");
-			values = new Vector<O>(names.length);
+			values = new ArrayList<O>(names.length);
 			for (int i = 0; i < names.length; i++) {
 				O o = getObjectFromName(names[i]);
-				values.addElement(o);
+				values.add(o);
 			}
 		}
 		return values;

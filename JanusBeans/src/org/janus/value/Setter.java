@@ -3,7 +3,7 @@ package org.janus.value;
 import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 import org.apache.commons.beanutils.DynaBean;
 import org.apache.logging.log4j.LogManager;
@@ -13,7 +13,7 @@ import org.janus.bean.CallDataValue;
 import org.janus.data.DataContext;
 
 /*
- * Setzt den Wert einer Hashtable usw, auf eine Konstante oder einen Wert
+ * Setzt den Wert einer HashMap usw, auf eine Konstante oder einen Wert
  * 
  * 
  */
@@ -40,8 +40,8 @@ public class Setter implements ReadValue {
 		this.value = value;
 	}
 
-	// Wert einer Hashtable setzen
-	public void setHashtable(DataContext data, Hashtable<String, Object> h) {
+	// Wert einer HashMap setzen
+	public void setHashMap(DataContext data, HashMap<String, Object> h) {
 		if (targetName != null) {
 			h.put(targetName, getObject(data));
 		}

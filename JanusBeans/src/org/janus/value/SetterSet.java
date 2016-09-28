@@ -1,10 +1,11 @@
 package org.janus.value;
 
 import java.sql.PreparedStatement;
-
 import java.sql.SQLException;
-import java.util.Hashtable;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.commons.beanutils.DynaBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,15 +15,15 @@ import org.janus.data.DataContext;
  * Setzt mehrere Werte
  * 
  */
-public class SetterSet extends Vector<Setter> {
+public class SetterSet extends ArrayList<Setter> {
 	private static final Logger LOG = LogManager.getLogger(SetterSet.class);
 
 	
-	// Wert einer Hashtable setzen
-	public void setHashtable(DataContext data, Hashtable<String, Object> h) {
-		LOG.debug("Setze Hashtable");
+	// Wert einer HashMap setzen
+	public void setHashMap(DataContext data, HashMap<String, Object> h) {
+		LOG.debug("Setze HashMap");
 		for (Setter s : this) {
-			s.setHashtable(data, h);
+			s.setHashMap(data, h);
 		}
 	}
 

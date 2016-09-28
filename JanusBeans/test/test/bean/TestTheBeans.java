@@ -2,6 +2,8 @@ package test.bean;
 
 import java.io.Serializable;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.janus.actions.DefaultValue;
 import org.janus.bean.BeanDataValue;
 import org.janus.bean.CallDataValue;
@@ -20,6 +22,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class TestTheBeans implements ActionListener {
+    private static final Logger LOG = LogManager.getLogger(TestTheBeans.class);
+    
 	int count;
 
 	@Test
@@ -117,7 +121,7 @@ public class TestTheBeans implements ActionListener {
 			Object obj = erg.getObject(data);
 			Assert.assertEquals("12", obj);
 		} catch (Exception e) {
-			e.printStackTrace();
+		    LOG.error("fehler im Test",e);
 			Assert.fail(e.getMessage());
 		}
 	}
@@ -185,7 +189,7 @@ public class TestTheBeans implements ActionListener {
 			Assert.assertEquals(2, count);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+		    LOG.error("fehler im Test",e);
 			Assert.fail(e.getMessage());
 		}
 	}

@@ -1,9 +1,13 @@
 package org.janus.free;
 
 import java.awt.Container;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.Vector;
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.commons.collections.CollectionUtils;
 
 /**
  * Class declaration
@@ -47,12 +51,12 @@ public class Remove {
 			return removeArray((Object[]) obj);
 		}
 
-		if (obj instanceof Vector) {
-			return removeVector((Vector) obj);
+		if (obj instanceof List) {
+			return removeList((List) obj);
 		}
 
-		if (obj instanceof Hashtable) {
-			return removeHashtable((Hashtable) obj);
+		if (obj instanceof HashMap) {
+			return removeHashMap((HashMap) obj);
 		}
 
 		return null;
@@ -92,19 +96,16 @@ public class Remove {
 	 * 
 	 * @see
 	 */
-	public static Vector removeVector(Vector obj) {
+	public static List removeList(List<?> obj) {
 		if (obj == null) {
 			return null;
 		}
-		;
 
-		Enumeration e = obj.elements();
-
-		while (e.hasMoreElements()) {
-			remove(e.nextElement());
+		for(Object o : obj) {
+			remove(o);
 		}
 
-		obj.removeAllElements();
+		obj.clear();
 
 		return null;
 	}
@@ -119,15 +120,13 @@ public class Remove {
 	 * 
 	 * @see
 	 */
-	public static Hashtable removeHashtable(Hashtable obj) {
+	public static HashMap removeHashMap(HashMap obj) {
 		if (obj == null) {
 			return null;
 		}
 
-		Enumeration e = obj.elements();
-
-		while (e.hasMoreElements()) {
-			remove(e.nextElement());
+		for(Object o : obj.values()) {
+			remove(o);
 		}
 
 		obj.clear();

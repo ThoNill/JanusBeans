@@ -1,5 +1,7 @@
 package test.bean;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.janus.actions.DefaultValue;
 import org.janus.data.DataContext;
 import org.janus.datatype.DefaultData;
@@ -7,11 +9,12 @@ import org.janus.dict.actions.ActionDictionary;
 import org.janus.dict.actions.PageValue;
 import org.janus.value.BooleanScriptValue;
 import org.janus.value.RegExpValue;
+import org.janus.value.ScriptValue;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class TestScriptsAndRegEX {
-
+    private static final Logger LOG = LogManager.getLogger(TestScriptsAndRegEX.class);
 
 
 	@Test
@@ -37,7 +40,7 @@ public class TestScriptsAndRegEX {
 			ok = re.isOk(data);
 			Assert.assertFalse(ok);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOG.error("fehler im Test",e);
 			Assert.fail(e.getMessage());
 		}
 	}
@@ -63,7 +66,7 @@ public class TestScriptsAndRegEX {
 			ok = re.isOk(data);
 			Assert.assertFalse(ok);
 		} catch (Exception e) {
-			e.printStackTrace();
+		    LOG.error("fehler im Test",e);
 			Assert.fail(e.getMessage());
 		}
 	}

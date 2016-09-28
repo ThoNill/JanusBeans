@@ -15,7 +15,7 @@ public class DefaultExtendedTableModel extends DefaultTableModel implements
 	 * 
 	 */
 	private static final long serialVersionUID = 4304583020443491079L;
-	private transient VectorComperator comperator = null;
+	private transient ListComperator comperator = null;
 	private int current = 0;
 	private long generation=1;
 
@@ -64,20 +64,19 @@ public class DefaultExtendedTableModel extends DefaultTableModel implements
 	@Override
 	public void sort(boolean ascending, int column) {
 		if (comperator == null) {
-			comperator = new VectorComperator();
+			comperator = new ListComperator();
 		}
-		;
 		comperator.setAscending(ascending);
 		comperator.setColumn(column);
 		Collections.sort(dataVector, comperator);
 		fireTableChanged(new TableModelEvent(this));
 	}
 
-	public VectorComperator getComperator() {
+	public ListComperator getComperator() {
 		return comperator;
 	}
 
-	public void setComperator(VectorComperator comperator) {
+	public void setComperator(ListComperator comperator) {
 		if (comperator == null) {
 			throw new NullPointerException();
 		}

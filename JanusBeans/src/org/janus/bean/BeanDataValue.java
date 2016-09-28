@@ -30,7 +30,7 @@ public class BeanDataValue extends DefaultValue implements ObjectCreator {
 	@Override
 	public Serializable create() {
 		if (classname == null) {
-			throw new RuntimeException("Kein Classname in gesetzt");
+			throw new IllegalArgumentException("Kein Classname in gesetzt");
 		}
 		return (Serializable) DefaultClassFactory.FACTORY.createAndCheckInstance(classname,
 				Serializable.class);
