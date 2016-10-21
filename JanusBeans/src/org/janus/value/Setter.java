@@ -9,7 +9,6 @@ import org.apache.commons.beanutils.DynaBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.janus.actions.ReadValue;
-import org.janus.bean.CallDataValue;
 import org.janus.data.DataContext;
 
 /*

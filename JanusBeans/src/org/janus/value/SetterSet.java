@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import org.apache.commons.beanutils.DynaBean;
 import org.apache.logging.log4j.LogManager;

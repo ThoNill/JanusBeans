@@ -9,7 +9,6 @@ import org.janus.dict.actions.ActionDictionary;
 import org.janus.dict.actions.PageValue;
 import org.janus.value.BooleanScriptValue;
 import org.janus.value.RegExpValue;
-import org.janus.value.ScriptValue;
 import org.junit.Assert;
 import org.junit.Test;
 

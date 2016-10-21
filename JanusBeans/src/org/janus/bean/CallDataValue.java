@@ -2,6 +2,7 @@ package org.janus.bean;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
+
 import org.apache.commons.beanutils.ConvertingWrapDynaBean;
 import org.apache.commons.beanutils.MethodUtils;
 import org.apache.logging.log4j.LogManager;

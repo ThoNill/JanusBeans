@@ -165,7 +165,7 @@ public class DefaultExtendedTableWrapper extends DefaultValue implements
 
 	@Override
 	public void configure(DataDescription description) {
-		// TODO Auto-generated method stub
+		
 
 	}
 

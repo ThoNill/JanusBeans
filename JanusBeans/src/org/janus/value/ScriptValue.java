@@ -9,7 +9,6 @@ import javax.script.ScriptException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.janus.bean.CallDataValue;
 import org.janus.data.DataContext;
 
 /**

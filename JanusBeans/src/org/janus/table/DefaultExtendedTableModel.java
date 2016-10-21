@@ -4,6 +4,7 @@ import java.util.Collections;
 
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
+
 import org.janus.free.Removable;
 
 public class DefaultExtendedTableModel extends DefaultTableModel implements
