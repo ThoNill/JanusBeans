@@ -11,9 +11,12 @@ public interface ExtendedTableModel extends TableModel, Serializable {
 	 long getGeneration();
 
 	 int getCurrentRow();
-
 	 void setCurrentRow(int current);
 
+     int getCurrentColumn();
+	 void setCurrentColumn(int current);
+
+	 
 	 boolean moreData();
 
 	 boolean initData();

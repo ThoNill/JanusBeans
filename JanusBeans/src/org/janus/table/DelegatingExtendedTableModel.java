@@ -6,6 +6,7 @@ import javax.swing.table.TableModel;
 public class DelegatingExtendedTableModel implements ExtendedTableModel{
 	private TableModel tm;
 	private int currentRow;
+	private int currentColumn;
 
 	public DelegatingExtendedTableModel(TableModel tm) {
 		super();
@@ -39,6 +40,9 @@ public class DelegatingExtendedTableModel implements ExtendedTableModel{
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
+	    if (rowIndex <0) {
+	        rowIndex = 0;
+	    }
 		return tm.getValueAt(rowIndex, columnIndex);
 	}
 
@@ -101,6 +105,17 @@ public class DelegatingExtendedTableModel implements ExtendedTableModel{
 	public void sort(boolean ascending, int column) {
 	
 	}
+
+    @Override
+    public int getCurrentColumn() {
+        return currentColumn;
+    }
+
+    @Override
+    public void setCurrentColumn(int current) {
+        this.currentColumn = current;
+        
+    }
 	
 	
 

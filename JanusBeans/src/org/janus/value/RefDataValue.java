@@ -102,8 +102,8 @@ public class RefDataValue extends ActionEventSender implements ReadValue, Action
 		sourceValue = getSourceValue();
 		if (sourceValue != null) {
 			Serializable bean = sourceValue.getObject(data);
-			if (dynaBeanPath != null) {
-				ConvertingWrapDynaBean dynBean = new ConvertingWrapDynaBean(bean);
+			if (dynaBeanPath != null) {				
+			    ConvertingWrapDynaBean dynBean = new ConvertingWrapDynaBean(bean);
 				return (Serializable) dynBean.get(dynaBeanPath);
 			}
 			return bean;

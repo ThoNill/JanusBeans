@@ -40,7 +40,7 @@ public class DefaultTableColumn implements DataValue , Action {
 
 	@Override
 	public Serializable getObject(DataContext data) {
-		return table.getValueAt(data, index);
+	    return table.getValueAt(data, index);
 	}
 	
 

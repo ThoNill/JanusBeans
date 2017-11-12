@@ -19,6 +19,7 @@ public class DefaultExtendedTableModel extends DefaultTableModel implements
 	private transient ListComperator comperator = null;
 	private int current = 0;
 	private long generation=1;
+    private int currentColumn=0;
 
 	public DefaultExtendedTableModel(String h[], int c) {
 		super(h, c);
@@ -121,5 +122,18 @@ public class DefaultExtendedTableModel extends DefaultTableModel implements
 	public long getId() {
 		return id ;
 	}
+	
+
+    @Override
+    public int getCurrentColumn() {
+        return currentColumn;
+    }
+
+    @Override
+    public void setCurrentColumn(int current) {
+        this.currentColumn = current;
+        
+    }
+
 
 }
